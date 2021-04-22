@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CTIS.ViewModals"
+             x:Class="CTIS.Views.PatientMainView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:PatientMainVM x:Key="PMVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     Margin="10"
+                     HorizontalOptions="FillAndExpand"
+                     BindingContext="{StaticResource PMVM}">
+
+            <Label Text="SIGN OUT"
+                   FontSize="14"
+                   TextColor="White"
+                   HorizontalOptions="EndAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignOutCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20"
+                     BindingContext="{StaticResource PMVM}">
+
+            <Button Text="Test History"
+                    Command="{Binding TestHistoryCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

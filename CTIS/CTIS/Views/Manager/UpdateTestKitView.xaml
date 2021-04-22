@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CTIS.ViewModals.Manager"
+             x:Class="CTIS.Views.Manager.UpdateTestKitView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:UpdateTestKitVM x:Key="UTVM" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid Margin="20"
+              BackgroundColor="Beige"
+              BindingContext="{StaticResource Key=UTVM}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <Label Grid.Row="0"
+                       Margin="40"
+                       FontSize="20"
+                       HorizontalOptions = "CenterAndExpand"
+                       Text="{Binding testName}" />
+
+                <Entry Grid.Row="1"
+                       Placeholder="Stock"
+                       Keyboard="Numeric"
+                       Margin="20"
+                       Text="{Binding availableStock}" />
+            </Grid>
+
+            <Grid Grid.Row="1">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Update"
+                        CornerRadius="10"
+                        BackgroundColor="DodgerBlue"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Margin="20"
+                        Command="{Binding UpdateCommand}"/>
+
+                <Button Text="Cancel"
+                        Grid.Column="1"
+                        CornerRadius="10"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Margin="20"
+                        Command="{Binding CancelCommand}"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

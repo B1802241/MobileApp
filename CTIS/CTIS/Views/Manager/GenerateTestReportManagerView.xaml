@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CTIS.ViewModals"
+             x:Class="CTIS.Views.Manager.GenerateTestReportManagerView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:GenerateTestReportManagerVM x:Key="GTRMVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <Label Text="Test Report"
+               TextColor="White"
+               FontSize="20"
+               FontAttributes="Bold"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout BindingContext="{StaticResource GTRMVM}">
+            <ListView Margin="10"
+                      ItemsSource="{Binding TestList}"
+                      SelectedItem="{Binding SelectedItem}"
+                      IsPullToRefreshEnabled="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding testID}"
+                                  Detail="{Binding status}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

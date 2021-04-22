@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CTIS.Views.ManagerMainView"
+             xmlns:local="clr-namespace:CTIS.ViewModals">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ManagerMainVM x:Key="MMVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     Margin="10"
+                     HorizontalOptions="FillAndExpand"
+                     BindingContext="{StaticResource MMVM}">
+
+            <Label Text="SIGN OUT"
+                   FontSize="14"
+                   TextColor="White"
+                   HorizontalOptions="EndAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignOutCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout Margin="20"
+                     BindingContext="{StaticResource MMVM}">
+            <Button Text="Register Test Centre"
+                    x:Name="RegisterTestCentre"
+                    Command="{Binding RegisterTestCentreCommand}"/>
+
+            <Button Text="Record Tester"
+                    Command="{Binding RecordTesterCommand}"/>
+
+            <Button Text="Manage Test Kit Stock"
+                    Command="{Binding ManageTestKitStockCommand}"/>
+
+            <Button Text="Generate Test Report"
+                    Command="{Binding GenerateTestReportCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

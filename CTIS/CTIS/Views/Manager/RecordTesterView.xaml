@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CTIS.ViewModals.Manager"
+             x:Class="CTIS.Views.RecordTesterView">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:RecordTesterVM x:Key="RTVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout Margin="20"
+                     BindingContext="{StaticResource RTVM}">
+            
+            <Label Text="Register Tester"
+               FontSize="30"
+               HorizontalTextAlignment="Center"
+               Margin="0,30,0,50"
+               FontAttributes="Bold"
+               TextColor="Black"/>
+            
+            <Entry Placeholder="Username"
+                   Text="{Binding Username}"/>
+            
+            <Entry Placeholder="Password"
+                   Text="{Binding Password}"/>
+            
+            <Entry Placeholder="Full Name"
+                   Text="{Binding FullName}"/>
+            
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Register"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding RegisterCommand}"/>
+                
+                <Button Text="Cancel"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding CancelCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

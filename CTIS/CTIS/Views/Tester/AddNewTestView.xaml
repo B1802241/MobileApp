@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CTIS.ViewModals.Tester"
+             x:Class="CTIS.Views.Tester.AddNewTestView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:AddNewTestVM x:Key="ANTVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="20"
+                     BindingContext="{StaticResource ANTVM}">
+            <Label Text="Record New Test"
+               FontSize="30"
+               HorizontalTextAlignment="Center"
+               Margin="0,30,0,50"
+               FontAttributes="Bold"
+               TextColor="Black"/>
+
+            <Picker Title="Patient Type"
+                    SelectedItem="{Binding PatientType}"
+                    ItemsSource="{Binding patientTypeList}"
+                    FontSize="18"/>
+
+            <Entry Placeholder="Symptoms"
+                   Text="{Binding Symptoms}"/>
+
+            <Picker Title="Test Kit"
+                    SelectedItem="{Binding TestKitProp}"
+                    ItemsSource="{Binding TestKitList}"
+                    FontSize="18"/>
+
+            <StackLayout Orientation="Horizontal">
+
+                <Button Text="Add"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding AddNewTestCommand}"/>
+
+                <Button Text="Cancel"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding CancelCommand}"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

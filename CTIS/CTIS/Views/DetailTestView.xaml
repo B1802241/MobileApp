@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CTIS.ViewModals"
+             x:Class="CTIS.Views.DetailTestView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:DetailTestVM x:Key="DTVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <Label Text="Report Detail"
+               TextColor="White"
+               FontSize="20"
+               FontAttributes="Bold"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout BindingContext="{StaticResource Key=DTVM}">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="TestID: "
+                               FontSize="17"
+                               VerticalOptions="Center"/>
+
+                    </StackLayout>
+
+                    <Grid Grid.Column="1">
+                        <Entry Text="{Binding testID}"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="Red"
+                               IsReadOnly="True"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Test Date: "
+                               FontSize="17"
+                               VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <Grid Grid.Column="1">
+                        <Entry Text="{Binding testDate}"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="Red"
+                               IsReadOnly="True"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Result: "
+                               FontSize="17"
+                               VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <Grid Grid.Column="1">
+                        <Entry Text="{Binding result}"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="Red"
+                               IsReadOnly="True"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Result Date: "
+                               FontSize="17"
+                               VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <Grid Grid.Column="1">
+                        <Entry Text="{Binding resultDate}"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="Red"
+                               IsReadOnly="True"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Status: "
+                               FontSize="17"
+                               VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <Grid Grid.Column="1">
+                        <Entry Text="{Binding status}"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="Red"
+                               IsReadOnly="True"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="5">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Tester ID: "
+                               FontSize="17"
+                               VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <Grid Grid.Column="1">
+                        <Entry Text="{Binding testerID}"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="Red"
+                               IsReadOnly="True"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="6">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="KitID: "
+                               FontSize="17"
+                               VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <Grid Grid.Column="1">
+                        <Entry Text="{Binding kitID}"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="Red"
+                               IsReadOnly="True"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="7">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="PatientID: "
+                               FontSize="17"
+                               VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <Grid Grid.Column="1">
+                        <Entry Text="{Binding patientID}"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="Red"
+                               IsReadOnly="True"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="8">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Patient ID: "
+                               FontSize="17"
+                               VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <Grid Grid.Column="1">
+                        <Entry Text="{Binding patientName}"
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="Red"
+                               IsReadOnly="True"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

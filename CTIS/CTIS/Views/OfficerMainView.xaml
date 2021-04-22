@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CTIS.Views.OfficerMainView"
+             xmlns:local="clr-namespace:CTIS.ViewModals">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:OfficerMainVM x:Key="OMVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     Margin="10"
+                     HorizontalOptions="FillAndExpand"
+                     BindingContext="{StaticResource OMVM}">
+
+            <Label Text="SIGN OUT"
+                   FontSize="14"
+                   TextColor="White"
+                   HorizontalOptions="EndAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignOutCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20"
+                     BindingContext="{StaticResource OMVM}">
+            
+            <Button Text="Generate Test Report"
+                    Command="{Binding GenerateTestReportCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CTIS.ViewModals.Manager"
+             x:Class="CTIS.Views.RegisterTestCentreView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:RegisterTestCentreVM x:Key="RTCVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="20"
+                 BindingContext="{StaticResource RTCVM}">
+        
+        <Label Text="Register Test Centre"
+               FontSize="30"
+               HorizontalTextAlignment="Center"
+               Margin="0,0,0,50"
+               FontAttributes="Bold"
+               TextColor="Black"/>
+
+        <Entry Placeholder="Centre Name"
+               VerticalOptions="Center"
+               ClearButtonVisibility="WhileEditing"
+               Text="{Binding centreName}"
+               IsSpellCheckEnabled="False"
+               HeightRequest="100"/>
+
+        <StackLayout Margin="20"
+                     Orientation="Horizontal">
+            
+            <Button Text="Register"
+                    Command="{Binding RegisterCommand}"
+                    HorizontalOptions="FillAndExpand"/>
+            
+            <Button Text="Cancel"
+                    Command="{Binding CancelCommand}"
+                    HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

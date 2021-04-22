@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CTIS.ViewModals.Manager"
+             x:Class="CTIS.Views.ManageTestKitView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ManageTestKitVM x:Key="MTVM" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     Margin="10"
+                     HorizontalOptions="FillAndExpand"
+                     BindingContext="{StaticResource MTVM}">
+
+            <Label Text="Add TestKit"
+                   FontSize="20"
+                   TextColor="White"
+                   HorizontalOptions="EndAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddTestKitCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+
+    <ContentPage.Content>
+        <StackLayout Margin="20"
+              BindingContext="{StaticResource Key=MTVM}">
+
+            <ListView Grid.Row="1"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="2"
+                      Margin="10"
+                      BackgroundColor="Beige"
+                      ItemsSource="{Binding TestKitsList}"
+                      SelectedItem="{Binding SelectedItem}"
+                      IsPullToRefreshEnabled="True"
+                     >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding testName}"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   TextColor="Black"
+                                   Margin="10, 0"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

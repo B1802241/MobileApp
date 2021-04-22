@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CTIS.ViewModals.Tester"
+             x:Class="CTIS.Views.Tester.RecordTestListView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:RecordTestListVM x:Key="RTLVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="20"
+                     BindingContext="{StaticResource RTLVM}">
+            <Label Text="Patient List"
+               FontSize="30"
+               HorizontalTextAlignment="Center"
+               Margin="0,10,0,10"
+               FontAttributes="Bold"
+               TextColor="Black"/>
+            
+            <ListView Margin="10"
+                      BackgroundColor="Beige"
+                      ItemsSource="{Binding PatientList}"
+                      SelectedItem="{Binding SelectedItem}"
+                      IsPullToRefreshEnabled="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Name}"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   TextColor="Black"
+                                   Margin="10,0"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
